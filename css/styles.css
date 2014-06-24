@@ -431,6 +431,10 @@ body .row .main_content {
 						margin-top: -30px;
 					}
 
+			body .row .main_content .row aside .sidebar .row .validation.widget p {
+				padding: 15px;
+			}
+
 			body .row .main_content .row aside .sidebar .row .widget ul li:last-child {
 				border-bottom: 0;
 			}
@@ -456,3 +460,10 @@ body .row .main_content {
 				body .row .main_content .row aside .sidebar .row .widget ul.social-links li svg {
 					float: left;
 				}
+
+	body footer {
+		background-color: #222;
+		color: #fff;
+		padding: 10px;
+		text-align: center;
+	}
