@@ -6,7 +6,13 @@
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="css/styles.css" type="text/css">
+	<link rel="stylesheet" href="css/video-js.css" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900&amp;subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		.vjs-default-skin { color: #fff; }
+		.vjs-default-skin .vjs-play-progress,
+		.vjs-default-skin .vjs-volume-level { background-color: #f1c40f }
+	</style>
 
 	<!-- META TAGS -->
 	<meta charset="UTF-8" />
@@ -198,18 +204,21 @@
 								<i class="fa fa-video-camera"></i>
 							</div>
 							
+							<div class="embed-responsive embed-responsive-4by3">
+								<video id="MY_VIDEO_1" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="264" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+								 <source src="video/oceans.mp4" type='video/mp4'>
+								 <source src="MY_VIDEO.webm" type='video/webm'>
+								 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+								</video>
+							</div>
 
 							<div class="post_content">
-
-								<video width="350" height="240" controls>
-									<source src="video/DIM4OU.mp4" type="video/mp4">
-								</video>
 
 								<!-- ************************** -->
 								<!-- ** Post Content  ******  -->
 								<!-- ************************** -->
 								<h2>
-									<a href="#">
+									<a href="video.html">
 										“В случая овцата е невидима” 
 									</a>
 								</h2>
