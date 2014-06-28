@@ -228,7 +228,8 @@ body .row .main_content {
 			margin-top: 10px !important;
 		}
 
-	body .row .main_content .row .col-lg-4 .row .image_post {
+	body .row .main_content .row .col-lg-4 .row .image_post,
+	body .row .main_content .row .col-lg-8 .row .image_post {
 		border-top: 4px solid #9b58b5;
 	}
 
