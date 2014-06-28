@@ -558,7 +558,7 @@ body .row .main_content {
 			fill: #EC2929;
 		}
 
-		body .row .main_content .row .col-lg-8 .row .share-post-wrapper ul li a:hover svg #logo {
+		body .row .main_content .row .col-lg-8 .row .share-post-wrapper ul li a:hover svg .logo {
 			fill: #fff !important;
 		}
 
