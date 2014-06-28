@@ -133,26 +133,33 @@ body .row .main_content {
 			background-color: #eb005d;
 		}
 
-	body .row .main_content .row .col-lg-4 .row .quote_post {
+	body .row .main_content .row .col-lg-4 .row .quote_post,
+	body .row .main_content .row .col-lg-8 .row .quote_post {
 		border-top: 4px solid #a0cf4f;
 	}
 
 		body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2,
-		body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 {
+		body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2,
+		body .row .main_content .row .col-lg-8 .row .quote_post .post_content h2,
+		body .row .main_content .row .col-lg-8 .row .humour_post .post_content h2 {
 			border-bottom: 0 !important;
 			margin-top: 35px !important;
 		}
 
 			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:hover,
-			body .row .main_content .row .col-lg-4 .row .quote_post .meta i {
+			body .row .main_content .row .col-lg-4 .row .quote_post .meta i,
+			body .row .main_content .row .col-lg-8 .row .quote_post .post_content h2 a:hover,
+			body .row .main_content .row .col-lg-8 .row .quote_post .meta i {
 				color: #a0cf4f;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 a:hover {
+			body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 a:hover,
+			body .row .main_content .row .col-lg-8 .row .humour_post .post_content h2 a:hover {
 				color: #e33535;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 a:before {
+			body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 a:before,
+			body .row .main_content .row .col-lg-8 .row .humour_post .post_content h2 a:before {
 				font-family: "FontAwesome";
 				content: "\f10d";
 				font-size: 25px;
@@ -160,7 +167,8 @@ body .row .main_content {
 				color: #e33535;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 a:after {
+			body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 a:after,
+			body .row .main_content .row .col-lg-8 .row .humour_post .post_content h2 a:after {
 				font-family: "FontAwesome";
 				content: "\f10e";
 				font-size: 25px;
@@ -168,11 +176,13 @@ body .row .main_content {
 				color: #e33535;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .humour_post .post_content .meta i {
+			body .row .main_content .row .col-lg-4 .row .humour_post .post_content .meta i,
+			body .row .main_content .row .col-lg-8 .row .humour_post .post_content .meta i {
 				color: #e33535;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:before {
+			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:before,
+			body .row .main_content .row .col-lg-8 .row .quote_post .post_content h2 a:before {
 				font-family: "FontAwesome";
 				content: "\f10d";
 				font-size: 25px;
@@ -180,7 +190,8 @@ body .row .main_content {
 				color: #a0cf4f;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:after {
+			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:after,
+			body .row .main_content .row .col-lg-8 .row .quote_post .post_content h2 a:after {
 				font-family: "FontAwesome";
 				content: "\f10e";
 				font-size: 25px;
@@ -189,7 +200,9 @@ body .row .main_content {
 			}
 
 		body .row .main_content .row .col-lg-4 .row .quote_post .post_content .author,
-		body .row .main_content .row .col-lg-4 .row .humour_post .post_content .author {
+		body .row .main_content .row .col-lg-4 .row .humour_post .post_content .author,
+		body .row .main_content .row .col-lg-8 .row .quote_post .post_content .author,
+		body .row .main_content .row .col-lg-8 .row .humour_post .post_content .author {
 			text-align: center;
 			font-size: 20px;
 			font-style: italic;
@@ -197,17 +210,20 @@ body .row .main_content {
 			color: #515e6c; 
 		}
 
-		body .row .main_content .row .col-lg-4 .row .humour_post .post_content .author:before {
+		body .row .main_content .row .col-lg-4 .row .humour_post .post_content .author:before,
+		body .row .main_content .row .col-lg-8 .row .humour_post .post_content .author:before {
 			content: '- by';
 			padding-right: 5px;
 		}
 
-		body .row .main_content .row .col-lg-4 .row .quote_post .border {
+		body .row .main_content .row .col-lg-4 .row .quote_post .border,
+		body .row .main_content .row .col-lg-8 .row .quote_post .border {
 			background-color: #a0cf4f;
 			margin-top: 10px !important;
 		}
 
-		body .row .main_content .row .col-lg-4 .row .humour_post .border {
+		body .row .main_content .row .col-lg-4 .row .humour_post .border,
+		body .row .main_content .row .col-lg-8 .row .humour_post .border {
 			background-color: #e33535;
 			margin-top: 10px !important;
 		}
@@ -301,6 +317,14 @@ body .row .main_content {
 			body .row .main_content .row .col-lg-8 .row .post .post_content h2 a {
 				color: #515e6c;
 				display: block;
+			}
+
+			body .row .main_content .row .col-lg-8 .row .post .post_content h2 {
+				color: 
+			}
+
+			body .row .main_content .row .col-lg-8 .row .post .post_content h2:hover {
+				cursor: default;
 			}
 
 			body .row .main_content .row .col-lg-4 .row .post .post_content h2 a:hover,
@@ -520,7 +544,7 @@ body .row .main_content {
 			fill: #EF4646;
 		}
 
-		body .row .main_content .row .col-lg-8 .row .share-post-wrapper ul li.linkedin a:hover svg #bg-l {
+		body .row .main_content .row .col-lg-8 .row .share-post-wrapper ul li.youtube a:hover svg #bg-l {
 			fill: #EC2929;
 		}
 
