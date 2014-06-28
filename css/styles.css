@@ -102,7 +102,7 @@ body .row .fullwidth-container .container header nav.navbar .container-fluid .co
 			color: #fff;
 		}
 
-		body .row .fullwidth-container .container header nav.navbar .container-fluid .collapse .navbar-nav  li.dropdown.active a {
+		body .row .fullwidth-container .container header nav.navbar .container-fluid .collapse .navbar-nav li.active a {
 			background-color: #3891ea;
 			border-bottom: 2px solid #146bc1;
 			color: #fff;
