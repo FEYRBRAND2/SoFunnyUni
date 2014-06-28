@@ -646,7 +646,9 @@ blockquote .small {
   display: block;
   font-size: 80%;
   line-height: 1.42857143;
-  color: #999;
+  color: #999 !important;
+  background-color: transparent !important;
+  text-align: left !important;
 }
 blockquote footer:before,
 blockquote small:before,
@@ -1267,7 +1269,7 @@ pre code {
     width: 41.66666667%;
   }
   .col-lg-4 {
-    width: 33.33333333%;
+    width: 35.33333333%;
   }
   .col-lg-3 {
     width: 28%;
@@ -4935,6 +4937,8 @@ a.list-group-item-danger.active:focus {
 }
 .panel-default {
   border-color: #ddd;
+  float: left;
+  width: 100%;
 }
 .panel-default > .panel-heading {
   color: #333;
