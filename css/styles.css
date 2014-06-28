@@ -238,13 +238,9 @@ body .row .main_content {
 		border-top: 4px solid #f1c40f;
 	}
 
-		body .row .main_content .row .col-lg-4 .row .video_post .post_content {
+		body .row .main_content .row .col-lg-4 .row .video_post .post_content,
+		body .row .main_content .row .col-lg-8 .row .video_post .post_content {
 			padding: 0 17px;
-		}
-
-		body .row .main_content .row .col-lg-8 .row .video_post .post_content,
-		body .row .main_content .row .col-lg-4 .row .video_post .post_content .embed-responsive {
-			padding: 0 !important;
 		}
 
 		body .row .main_content .row .col-lg-4 .row .video_post h2,
