@@ -221,7 +221,7 @@ body .row .main_content {
 	}
 
 		body .row .main_content .row .col-lg-4 .row .video_post .post_content video {
-			margin: -22px 0 0 -17px;
+			margin: -17px 0 0 -6px;
 		}
 
 		body .row .main_content .row .col-lg-4 .row .video_post h2 {
@@ -284,7 +284,7 @@ body .row .main_content {
 
 	body .row .main_content .row .col-lg-4 .row .post .post_content,
 	body .row .main_content .row .col-lg-8 .row .post .post_content  {
-		padding: 0 17px;
+		padding: 17px 17px;
 	}
 
 		body .row .main_content .row .col-lg-4 .row .post .post_content h2,
