@@ -133,7 +133,8 @@ body .row .main_content {
 			background-color: #eb005d;
 		}
 
-	body .row .main_content .row .col-lg-4 .row .quote_post {
+	body .row .main_content .row .col-lg-4 .row .quote_post,
+	body .row .main_content .row .col-lg-8 .row .quote_post {
 		border-top: 4px solid #a0cf4f;
 	}
 
@@ -155,7 +156,7 @@ body .row .main_content {
 			}
 
 			body .row .main_content .row .col-lg-4 .row .humour_post .post_content h2 a:before,
-			body .row .main_content .row .col-lg-8.row .humour_post .post_content h2 a:before {
+			body .row .main_content .row .col-lg-8 .row .humour_post .post_content h2 a:before {
 				font-family: "FontAwesome";
 				content: "\f10d";
 				font-size: 25px;
@@ -177,7 +178,8 @@ body .row .main_content {
 				color: #e33535;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:before {
+			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:before,
+			body .row .main_content .row .col-lg-8 .row .quote_post .post_content h2 a:before {
 				font-family: "FontAwesome";
 				content: "\f10d";
 				font-size: 25px;
@@ -185,7 +187,8 @@ body .row .main_content {
 				color: #a0cf4f;
 			}
 
-			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:after {
+			body .row .main_content .row .col-lg-4 .row .quote_post .post_content h2 a:after,
+			body .row .main_content .row .col-lg-8 .row .quote_post .post_content h2 a:after {
 				font-family: "FontAwesome";
 				content: "\f10e";
 				font-size: 25px;
@@ -222,12 +225,16 @@ body .row .main_content {
 		}
 
 	body .row .main_content .row .col-lg-4 .row .image_post,
-	body .row .main_content .row .col-lg-4 .row .image_post {
+	body .row .main_content .row .col-lg-8 .row .image_post {
 		border-top: 4px solid #9b58b5;
 	}
 
+	body .row .main_content .row .col-lg-8 .row .image_post {
+		margin-bottom: 15px !important;
+	}
+
 	body .row .main_content .row .col-lg-4 .row .video_post,
-	body .row .main_content .row .col-lg-4 .row .video_post {
+	body .row .main_content .row .col-lg-8 .row .video_post {
 		border-top: 4px solid #f1c40f;
 	}
 
@@ -264,7 +271,7 @@ body .row .main_content {
 	}
 
 	body .row .main_content .row .col-lg-8 .row .post_excerpt {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
 
 	body .row .main_content .row .col-lg-4 .row .post .hexagon,
