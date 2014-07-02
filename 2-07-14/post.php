@@ -356,7 +356,6 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 						</div>
 					</div><!-- /.row -->
 				</div><!-- /.col-md-12 -->
-
 				<aside class="col-lg-3 col-lg-push-0 col-md-6 col-md-push-0 col-sm-12 col-sm-push-0 col-xs-11 col-xs-push-0" style="float:right">
 					<div class="sidebar">
 						<div class="row">
