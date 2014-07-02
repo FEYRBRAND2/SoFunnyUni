@@ -1,3 +1,53 @@
+<?php
+
+
+$conn = new PDO(
+    'mysql:host=localhost;dbname=sofunnyuni',
+    'root',
+    ''
+);
+$conn->setAttribute(
+    PDO::ATTR_ERRMODE,
+    PDO::ERRMODE_EXCEPTION
+);
+
+$errors = [];
+
+if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
+	$name = $_POST['name'];
+	$mail = $_POST['mail'];
+	$comment = $_POST['comment'];
+	$avatar = $_POST['avatar'];
+	$postID=4;
+	
+	if(empty($name)) {
+		$errors['name'] = true;
+	}
+
+	if (empty($mail)) {
+		$errors['mail'] = true;
+	}
+
+	if (empty($comment)) {
+		$errors['comment'] = true;
+	}
+	if(empty($name))
+	{
+	$errors['avatar']=true;
+	}
+
+	if(count($errors) == 0) {
+		$stmt = $conn->prepare('INSERT INTO comments (name, mail, comment, postID, url) VALUES (:name, :mail, :comment, :postID, :url)');
+		$stmt->bindParam(':name', $name, PDO::PARAM_STR);
+		$stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
+		$stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
+		$stmt->bindParam(':postID', $postID, PDO::PARAM_INT);
+		$stmt->bindParam(':url', $avatar, PDO::PARAM_STR);
+		$stmt->execute();
+	}
+}
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -169,15 +219,22 @@
 							</ul>
 						</div><!-- /.share-post-wrapper -->
 						<div class="comments col-lg-12 col-xs-12" id="comments">
-						    <div class="media">
+						<?php
+						$comments = $conn->prepare("SELECT * FROM `comments` WHERE `postID` = 4");
+						$comments->execute();
+
+						while($comment = $comments->fetch(PDO::FETCH_OBJ)) {
+							echo '<div class="media">
 						    	<a class="pull-left col-lg-2 col-xs-3" href="#">
-						    	  	<img class="media-object img-responsive" alt="Esbeye" src="http://pickaface.net/avatar/Opi51c74b9f4f950.png">
+						    	  	<img class="media-object img-responsive" alt="avatar" src='.print_r($comment->url, true).' />
 						    	</a>
 						    	<div class="media-body">
-						    		<h4 class="media-heading">Esbeye <span class="pull-right"><a href="">преди 3 дни</a> <i class="fa fa-flag"></i></span></h4>
-						    	  	Не го можеш, Накооооооооооов!
-						    	</div>
-						    </div>
+						    		<h4 class="media-heading">'.print_r($comment->name, true).'<span class="pull-right"><a href="">преди 3 месеца</a> <i class="fa fa-flag"></i></span></h4>'.print_r($comment->comment, true).
+								'</div>
+						    </div>';
+						}
+
+						?>
 						</div><!-- /.comments -->
 
 						<div class="panel panel-default">
@@ -185,18 +242,20 @@
 								<h3 class="panel-title">Коментирай</h3>
 							</div>
 							<div class="panel-body">
-								<form action="" method="post" role="form">
+								<form action="video3.php#comment-form" method="post" role="form">
 									<div class="row">
-										<div class="col-lg-6 col-xs-6">
-										    <input type="text" class="form-control" placeholder="Твоето име" required="required">
+										<div class="col-lg-6 col-xs-6<?php if (isset($errors['name'])) { echo " has-warning"; } ?>">
+										    <input type="text" class="form-control" placeholder="Твоето име" required="required" name="name">
 										</div>
-										<div class="col-lg-6 col-xs-6">
-										    <input type="email" class="form-control" placeholder="Твоят имейл" required="required">
+										<div class="col-lg-6 col-xs-6<?php if (isset($errors['mail'])) { echo " has-warning"; } ?>">
+										    <input type="email" class="form-control" placeholder="Твоят имейл" required="required" name="mail">
+										</div>
+										<div class="col-lg-12 col-xs-12<?php if (isset($errors['comment'])) { echo " has-warning"; } ?>">
+										    <textarea name="comment" id="message" class="form-control" rows="3" required="required" placeholder="Твоето съобщение"></textarea>
 										</div>
 										<div class="col-lg-12 col-xs-12">
-										    <textarea name="message" id="message" class="form-control" rows="3" required="required" placeholder="Твоето съобщение"></textarea>
-										</div>
-										<div class="col-lg-12 col-xs-12">
+											<br />
+											<input type="text "class="form-control"placeholder="Твоят аватар" required="required" name="avatar">
 										    <button type="submit" class="btn btn-primary btn-lg col-lg-12 col-xs-12">Изпрати</button>
 										</div>
 									</div>

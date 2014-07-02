@@ -17,7 +17,9 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 	$name = $_POST['name'];
 	$mail = $_POST['mail'];
 	$comment = $_POST['comment'];
-
+	$avatar = $_POST['avatar'];
+	$postID=1;
+	
 	if(empty($name)) {
 		$errors['name'] = true;
 	}
@@ -29,12 +31,18 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 	if (empty($comment)) {
 		$errors['comment'] = true;
 	}
+	if(empty($name))
+	{
+	$errors['avatar']=true;
+	}
 
 	if(count($errors) == 0) {
-		$stmt = $conn->prepare('INSERT INTO comments (name, mail, comment) VALUES (:name, :mail, :comment)');
+		$stmt = $conn->prepare('INSERT INTO comments (name, mail, comment, postID, url) VALUES (:name, :mail, :comment, :postID, :url)');
 		$stmt->bindParam(':name', $name, PDO::PARAM_STR);
 		$stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
 		$stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
+		$stmt->bindParam(':postID', $postID, PDO::PARAM_INT);
+		$stmt->bindParam(':url', $avatar, PDO::PARAM_STR);
 		$stmt->execute();
 	}
 }
@@ -283,51 +291,23 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 						</div><!-- /.share-post-wrapper -->
 						<div class="comments col-lg-12 col-xs-12">
 						<?php
-						$comments = $conn->prepare("SELECT * FROM comments");
+						$comments = $conn->prepare("SELECT * FROM `comments` WHERE `postID` = 1");
 						$comments->execute();
 
 						while($comment = $comments->fetch(PDO::FETCH_OBJ)) {
-							echo '<pre>' . print_r($comment, true) . '</pre>';
+							echo '<div class="media">
+						    	<a class="pull-left col-lg-2 col-xs-3" href="#">
+						    	  	<img class="media-object img-responsive" alt="avatar" src='.print_r($comment->url, true).' />
+						    	</a>
+						    	<div class="media-body">
+						    		<h4 class="media-heading">'.print_r($comment->name, true).'<span class="pull-right"><a href="">преди 3 месеца</a> <i class="fa fa-flag"></i></span></h4>'.print_r($comment->comment, true).
+								'</div>
+						    </div>';
 						}
 
 						?>
-							<div class="media">
-						    	<a class="pull-left col-lg-2 col-xs-3" href="#">
-						    	  	<img class="media-object img-responsive" alt="Steve Jobs" src="http://pickaface.net/avatar/Opi51c74d0125fd4.png">
-						    	</a>
-						    	<div class="media-body">
-						    		<h4 class="media-heading">Steve Jobs <span class="pull-right"><a href="">преди 3 месеца</a> <i class="fa fa-flag"></i></span></h4>
-						    	  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ipsam quis porro magni sequi quasi, minima totam tenetur, vero aperiam magnam doloremque labore voluptatem impedit laboriosam rerum. Consequatur, nulla, ex.
-						    	</div>
-						    </div>
-						    <div class="media">
-						    	<a class="pull-left col-lg-2 col-xs-3" href="#">
-						    	  <img class="media-object img-responsive" alt="Wolverine" src="http://pickaface.net/avatar/Opi51c74ead38850.png">
-						    	</a>
-						    	<div class="media-body">
-						    	 	<h4 class="media-heading">Wolverine <span class="pull-right"><a href="">преди 3 месеца</a> <i class="fa fa-flag"></i></span></h4>
-						    	  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas cupiditate autem, non rem provident numquam minus porro necessitatibus saepe. Magnam, corporis. Aspernatur, minus natus. Quos incidunt aspernatur earum eos molestiae.
-						    		<div class="media">
-						    			<a class="pull-left col-lg-2 col-xs-3" href="#">
-						    			  <img class="media-object img-responsive" alt="Michael Jackson" src="http://pickaface.net/avatar/Opi51e65b61dcd54.png">
-						    			</a>
-						    			<div class="media-body">
-						    			  <h4 class="media-heading">Michael Jackson <span class="label label-warning">Автор</span> <span class="pull-right"><a href="">преди 3 месеца</a> <i class="fa fa-flag"></i></span></h4>
-						    			  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium error et iure saepe vel inventore officia quae aspernatur aperiam nulla id tenetur cum, architecto sunt ipsam! Quod adipisci, rerum ad!
-						    			</div>
-						    		</div>
-						    	</div>
-						    </div>
-						    <div class="media">
-						    	<a class="pull-left col-lg-2 col-xs-3" href="#">
-						    	  	<img class="media-object img-responsive" alt="Esbeye" src="http://pickaface.net/avatar/Opi51c74b9f4f950.png">
-						    	</a>
-						    	<div class="media-body">
-						    		<h4 class="media-heading">Esbeye <span class="pull-right"><a href="">преди 3 месеца</a> <i class="fa fa-flag"></i></span></h4>
-						    	  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ipsam quis porro magni sequi quasi, minima totam tenetur, vero aperiam magnam doloremque labore voluptatem impedit laboriosam rerum. Consequatur, nulla, ex.
-						    	</div>
-						    </div>
-						</div><!-- /.comments -->
+						<!-- /.comments -->
+						<br />
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title">Коментирай</h3>
@@ -346,6 +326,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 										    <textarea name="comment" id="message" class="form-control" rows="3" required="required" placeholder="Твоето съобщение"></textarea>
 										</div>
 										<div class="col-lg-12 col-xs-12">
+											<br />
+											<input type="text "class="form-control"placeholder="Твоят аватар" required="required" name="avatar">
 										    <button type="submit" class="btn btn-primary btn-lg col-lg-12 col-xs-12">Изпрати</button>
 										</div>
 									</div>
@@ -435,6 +417,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 								</h5> 
 								<div class="post_content">
 									<form action="/" method="POST">
+									
 										<input type="email" placeholder="Your email address" required="required" class="form-control"> <!-- type="email" not supported only by Safari -->
 										<input type="submit" class="subscribe_submit" value="">
 									</form>
